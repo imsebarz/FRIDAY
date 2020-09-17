@@ -16,7 +16,6 @@ body {
 }
 
 svg {
-  transform: scale(2);
   border-radius: 50%;
   box-shadow: none;
   transition: all 0.4s ease;
@@ -30,4 +29,10 @@ svg.active {
 
 #recording-circle.recording {
   fill: white !important;
+}
+
+@media screen and (min-width: 900px) {
+  svg {
+    transform: scale(2);
+  }
 }
