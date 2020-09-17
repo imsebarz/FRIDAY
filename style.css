@@ -22,9 +22,9 @@ svg {
 }
 
 svg.active {
-  box-shadow: 0px 0px 10px 2px rgb(5, 143, 255);
+  box-shadow: 0px 0px 8px 1px rgb(5, 143, 255);
   transition: all 0.5s ease;
-  transform: scale(2.1);
+  transform: scale(1.1);
 }
 
 #recording-circle.recording {
@@ -34,5 +34,10 @@ svg.active {
 @media screen and (min-width: 900px) {
   svg {
     transform: scale(2);
+  }
+  svg.active {
+    box-shadow: 0px 0px 10px 1px rgb(5, 143, 255);
+    transition: all 0.5s ease;
+    transform: scale(2.1);
   }
 }
