@@ -82,7 +82,7 @@ button.addEventListener("click", () => {
 
 const ReadLoud = (message) => {
   speech.lang = "es-ES";
-  speech.voice = window.speechSynthesis.getVoices()[14];
+  speech.voice = window.speechSynthesis.getVoices()[8];
   speech.text = message;
   speech.rate = 1;
   speech.pitch = 0.7;
