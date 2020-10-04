@@ -4,11 +4,12 @@ const recordingCircle = document.querySelector("#recording-circle");
 const synth = window.speechSynthesis;
 let login = false;
 const pistas = [
-  "nevera",
-  "alcoba",
-  "cama de tatys",
-  "otra pista",
-  "nose que más",
+  "La pista es: En elgún lugar muy frio, pero más frio de lo que piensas",
+  "La pista es: Debajo de morfeo",
+  "La pista es: Allá Duerme alguien que quieres mucho",
+  "La pista es: Ahora es un lugar muy calienta, y casi se queda en la otra casa",
+  "La pista es: Depronto se está secando con la ropa",
+  "La pista es: En un lugar muy muy arriba",
 ];
 
 const SpeechRecognition =
@@ -35,34 +36,20 @@ Recognition.onresult = function (event) {
   const Current = event.resultIndex;
   const transcript = event.results[Current][0].transcript;
   console.log(transcript);
-  if (login === false) {
-    if (transcript.includes("lala" || "Laura" || "laura" || "pandita")) {
-      login = true;
-      ReadLoud(
-        "Acceso Concedido, Ahora puedes hacerme preguntas. posdata: tengo pistas sobre tus regalos, guiño guiño"
-      );
-    } else {
-      ReadLoud("Acceso Denegado!");
-    }
-  } else {
-    if (transcript.includes("dónde") && !transcript.includes("regalos")) {
-      ReadLoud("¿Dónde están que?");
-    }
-    if (transcript.includes("te amo")) {
-      ReadLoud("Yo tambien te amo, pero no tanto como Sebas te ama a ti");
-    }
-    if (transcript.includes("Regalos")) {
+  if (transcript.includes("te amo")) {
+    ReadLoud("Yo tambien te amo, pero no tanto como Sebas te ama a ti");
+  }
+  if (transcript.includes("regalos")) {
       if (pistas.length > 0) {
         const pista = pistas.pop();
         ReadLoud("Okay aquí una pista: ");
         ReadLoud(pista);
       } else {
-        ReadLoud("Ya no hay mas regalos!! Feliz Cumpleaños!!");
+        ReadLoud("Oh! Ya no hay mas regalos!! Feliz Cumpleaños!!");
         ReadLoud("Cumpleaños feliz, feliz");
         Recognition.stop();
       }
     }
-  }
 };
 
 Recognition.onend = () => {
@@ -71,13 +58,8 @@ Recognition.onend = () => {
 
 button.addEventListener("click", () => {
   Recognition.stop();
-  if (!login) {
-    ReadLoud(
-      "Hola, Para continuar primero necesito verificar tu identidad. ¿Cómo te llamas?"
-    );
-  } else {
-    ReadLoud("Hola Soy Friday, ¿que necesitas?");
-  }
+
+    ReadLoud("Hola Hola Soy Friday, ¿que necesitas?");
 });
 
 const ReadLoud = (message) => {
