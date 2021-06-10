@@ -30,7 +30,7 @@ Recognition.onresult = function (event) {
   if (transcript.includes("te amo")) {
     ReadLoud("Yo tambien te amo, pero no tanto como Sebas te ama a ti");
   }
-  if (transcript.includes("somos")) {
+  if (transcript.includes("vivido") || transcript.includes("vivir")) {
     ReadLoud(
       "Felicitaciones!! Haz completado el juego de lalacertijos. espera hasta el viernes. Sebas te dará tu premio"
     );
