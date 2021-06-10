@@ -35,7 +35,7 @@ Recognition.onresult = function (event) {
       "Felicitaciones!! Haz completado el juego de lalacertijos. espera hasta el viernes. Sebas te dará tu premio"
     );
   }
-  if (transcript.includes("ayuda")) {
+  if (transcript.includes("ayuda") || transcript.includes("Ayuda")) {
     ReadLoud("Okay te ayudaré ");
     ReadLoud(
       "Ya tienes tu clave maestra completa. Une los trozos y decodificala en Base 64. Me cuentas que decía! "
@@ -50,15 +50,15 @@ Recognition.onend = () => {
 button.addEventListener("click", () => {
   Recognition.stop();
 
-  ReadLoud("Hola Hola Soy Friday, Es un gusto volverte a ver por aqui");
+  ReadLoud("Hola Hola Soy Friday, Es un gusto volverte a ver por aquí");
   ReadLoud("¿que necesitas?");
 });
 
 const ReadLoud = (message) => {
   speech.lang = "es-ES";
-  speech.voice = window.speechSynthesis.getVoices()[8];
+  speech.voice = window.speechSynthesis.getVoices()[5];
   speech.text = message;
-  speech.rate = 1;
+  speech.rate = 1.1;
   speech.pitch = 0.7;
   speech.volume = 1;
   window.speechSynthesis.speak(speech);
