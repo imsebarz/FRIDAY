@@ -50,8 +50,9 @@ Recognition.onend = () => {
 button.addEventListener("click", () => {
   Recognition.stop();
 
-  ReadLoud("Hola Hola Soy Friday, Es un gusto volverte a ver por aquí");
-  ReadLoud("¿que necesitas?");
+  ReadLoud(
+    "Hola Hola Soy Friday, Es un gusto volverte a ver por aquí. ¿que necesitas?"
+  );
 });
 
 const ReadLoud = (message) => {
