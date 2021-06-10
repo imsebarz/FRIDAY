@@ -2,15 +2,6 @@ const button = document.querySelector(".talk");
 const content = document.querySelector(".content");
 const recordingCircle = document.querySelector("#recording-circle");
 const synth = window.speechSynthesis;
-let login = false;
-const pistas = [
-  "La pista es: En elgún lugar muy frio, pero más frio de lo que piensas",
-  "La pista es: Debajo de morfeo",
-  "La pista es: Allá Duerme alguien que quieres mucho",
-  "La pista es: Ahora es un lugar muy calienta, y casi se queda en la otra casa",
-  "La pista es: Depronto se está secando con la ropa",
-  "La pista es: En un lugar muy muy arriba",
-];
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -39,17 +30,17 @@ Recognition.onresult = function (event) {
   if (transcript.includes("te amo")) {
     ReadLoud("Yo tambien te amo, pero no tanto como Sebas te ama a ti");
   }
-  if (transcript.includes("regalos")) {
-      if (pistas.length > 0) {
-        const pista = pistas.pop();
-        ReadLoud("Okay aquí una pista: ");
-        ReadLoud(pista);
-      } else {
-        ReadLoud("Oh! Ya no hay mas regalos!! Feliz Cumpleaños!!");
-        ReadLoud("Cumpleaños feliz, feliz");
-        Recognition.stop();
-      }
-    }
+  if (transcript.includes("somos")) {
+    ReadLoud(
+      "Felicitaciones!! Haz completado el juego de lalacertijos. espera hasta el viernes. Sebas te dará tu premio"
+    );
+  }
+  if (transcript.includes("ayuda")) {
+    ReadLoud("Okay te ayudaré ");
+    ReadLoud(
+      "Ya tienes tu clave maestra completa. Une los trozos y decodificala en Base 64. Me cuentas que decía! "
+    );
+  }
 };
 
 Recognition.onend = () => {
@@ -59,7 +50,8 @@ Recognition.onend = () => {
 button.addEventListener("click", () => {
   Recognition.stop();
 
-    ReadLoud("Hola Hola Soy Friday, ¿que necesitas?");
+  ReadLoud("Hola Hola Soy Friday, Es un gusto volverte a ver por aqui");
+  ReadLoud("¿que necesitas?");
 });
 
 const ReadLoud = (message) => {
